@@ -33,6 +33,9 @@ class Distance:
             return Distance(self.km * other)
         return NotImplemented
 
+    def __rmul__(self, other: Distance) -> Distance:
+        return self.__mul__(other)
+
     def __truediv__(self, other: Distance) -> Distance:
         if isinstance(other, (int, float)):
             return Distance(round(self.km / other, 2))
